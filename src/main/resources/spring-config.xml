@@ -15,6 +15,7 @@
     <!-- 配置扫描 -->
     <context:component-scan base-package="com.fengx.ssm"/>
     <!-- 配置druid数据源 -->
+    <!--如果注入的不是Bean，是boolean、int、String这样的数据类型，则通过value注入-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
         <property name="driverClassName" value="${driverClassName}"/>
@@ -42,6 +43,20 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+
+    <!--ioc容器-->
+    <!--等同于Java:
+    UserService userService = new UserService();
+    MailService mailService = new MailService();
+    userService.setMailService(mailService);
+
+    Spring容器通过读取XML文件后使用反射完成
+    -->
+    <bean id="userService" class="com.fengx.ssm.spring.UserService">
+        <property name="mailService" ref="mailService" />
+    </bean>
+
+    <bean id="mailService" class="com.fengx.ssm.spring.MailService" />
 
     <!-- 开启事务控制的注解支持 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>

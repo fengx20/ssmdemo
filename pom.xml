@@ -6,15 +6,31 @@
 
     <groupId>com.fengx</groupId>
     <artifactId>ssm</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring_01</module>
+        <module>spring_02</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring.version>5.2.1.RELEASE</spring.version>
+        <spring.version>5.2.2.RELEASE</spring.version>
         <cglib.version>3.2.5</cglib.version>
     </properties>
+
+<!--    <properties>-->
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+<!--        <maven.compiler.source>11</maven.compiler.source>-->
+<!--        <maven.compiler.target>11</maven.compiler.target>-->
+<!--        <java.version>11</java.version>-->
+<!--        <spring.version>5.2.3.RELEASE</spring.version>-->
+<!--    </properties>-->
 
     <!-- 依赖 dependencies -->
     <dependencies>
